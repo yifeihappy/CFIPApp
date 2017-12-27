@@ -1,18 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.example.yifeihappy.cfip.MainActivity">
+    android:layout_width="match_parent">
+
+    <Button
+        android:id="@+id/btnGet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GET" />
+
+    <Button
+        android:id="@+id/btnPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="POST" />
+
+    <Button
+        android:id="@+id/btnWallActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WallActivity" />
+
+    <Button
+        android:id="@+id/btnActActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ActActivity" />
+
+    <Button
+        android:id="@+id/btnGetImg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ImgActivity" />
+
+    <Button
+        android:id="@+id/btnBarActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:text="BarActivity" />
+
+    <!--<Button-->
+        <!--android:id="@+id/btnBaoMing"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="报名" />-->
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/responseTxt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="TextView" />
 
-</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

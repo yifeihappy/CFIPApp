@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <EditText
+        android:id="@+id/editNumber"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:hint="Student Number" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:hint="Password" />
+
+    <TextView
+        android:id="@+id/errortTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="用户名或密码错误"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign In" />
+
+</LinearLayout>
