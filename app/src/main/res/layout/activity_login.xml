@@ -12,11 +12,13 @@
         android:layout_marginTop="200dp"
         android:hint="Student Number" />
 
+
     <EditText
         android:id="@+id/editPassword"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:hint="Password" />
+        android:hint="Password"
+        android:inputType="textPassword"/>
 
     <TextView
         android:id="@+id/errortTxt"

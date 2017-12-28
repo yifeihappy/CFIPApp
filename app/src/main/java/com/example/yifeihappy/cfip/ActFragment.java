@@ -88,7 +88,7 @@ public class ActFragment extends Fragment {
                             listItem.put("addr", jsonObj.optString("actaddress"));
                             listItem.put("time", jsonObj.optString("actstart"));
                             listItem.put("sponser", jsonObj.optString("actsponser"));
-                            listItem.put("number", "100|1000");
+                            listItem.put("number", ""+jsonObj.optInt("participantnumber")+"|"+jsonObj.optInt("totalnumber"));
                             //listItem.put("img", R.drawable.koala);
                             //listItem.put("img", R.drawable.koala);
                             listItem.put("img", (Bitmap) imgJsonArray.get(i));
@@ -97,9 +97,15 @@ public class ActFragment extends Fragment {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    actSimpleAdapter = new SimpleAdapter(getActivity(), listItems, R.layout.act_item,
+
+//                    Log.d("actSimpleAdapter", actSimpleAdapter.toString());
+//                    Log.d("getContext()", getContext().toString());
+//                    Log.d("listItems", listItems.toString());
+
+                    actSimpleAdapter = new SimpleAdapter(getContext(), listItems, R.layout.act_item,
                             new String[]{"actname", "addr", "time", "sponser", "number", "img"},
                             new int[]{R.id.title, R.id.addr, R.id.time, R.id.sponser, R.id.number, R.id.act_img});
+
                     actSimpleAdapter.setViewBinder(new SimpleAdapter.ViewBinder() {
 
                         public boolean setViewValue(View view, Object data,

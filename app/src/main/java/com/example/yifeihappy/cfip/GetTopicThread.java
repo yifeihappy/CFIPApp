@@ -51,7 +51,7 @@ public class GetTopicThread implements Runnable {
                     Bitmap mBitmap = BitmapFactory.decodeStream(is);
                     imgJsonArray.put(i,mBitmap);
                     is.close();
-                    Log.d("get bitmap","img:"+i);
+                    Log.d("get topic bitmap","img:"+i);
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 } catch (IOException e) {

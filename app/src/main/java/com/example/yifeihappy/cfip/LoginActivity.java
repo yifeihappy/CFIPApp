@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText editText;
     EditText editPswd;
     public static Long userID;
+    public static String userName;
     Handler handler;
     TextView errorTxt;
     @Override
@@ -76,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                     msg.what = 0x001;
                     handler.sendMessage(msg);
                     LoginActivity.userID = jsonArray.getJSONObject(0).optLong("id");
+                    LoginActivity.userName = jsonArray.getJSONObject(0).optString("studentname");
                 } else {
                     Log.d("TF","not equal");
                     Message msg = new Message();

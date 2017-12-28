@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class TopicFragment extends Fragment {
     ListView mListView;
-    SimpleAdapter actSimpleAdapter;
+    SimpleAdapter topicSimpleAdapter;
     List<Map<String, Object>> listItems;
     TopicListHandler topicListHandler;
     View view;
@@ -47,18 +47,18 @@ public class TopicFragment extends Fragment {
         topicListHandler = new TopicListHandler();
         GetTopicThread getTopicThread = new GetTopicThread(topicListHandler);
         new Thread(getTopicThread).start();
-//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Map<String, Object> listItem = listItems.get(i);
-//                Log.d("actname", listItem.get("actname").toString());
-//                Bundle bundle = new Bundle();
-//                bundle.putString("act_id", listItem.get("id").toString());
-//                Intent intent = new Intent(getActivity(), ActDetailActivity.class);
-//                intent.putExtras(bundle);
-//                startActivity(intent);
-//            }
-//        });
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Map<String, Object> listItem = listItems.get(i);
+                Log.d("title", listItem.get("title").toString());
+                Bundle bundle = new Bundle();
+                bundle.putString("topic_id", listItem.get("id").toString());
+                Intent intent = new Intent(getActivity(), TopicDetailActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
         return view;
 
     }
@@ -88,25 +88,28 @@ public class TopicFragment extends Fragment {
                             listItem.put("brief", jsonObj.optString("brief"));
                             listItem.put("publishtime", jsonObj.optString("publishtime"));
                             listItem.put("commentnumber", jsonObj.optString("commentnumber"));
-                            //listItem.put("img", R.drawable.koala);
-                            //listItem.put("img", R.drawable.koala);
                             listItem.put("img", (Bitmap) imgJsonArray.get(i));
                             listItems.add(listItem);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    actSimpleAdapter = new SimpleAdapter(getActivity(), listItems, R.layout.topic_item,
+
+//                    Log.d("topicSimpleAdapter", topicSimpleAdapter.toString());
+//                    Log.d("getContext()", getContext().toString());
+//                    Log.d("listItems", listItems.toString());
+
+                    topicSimpleAdapter = new SimpleAdapter(getContext(), listItems, R.layout.topic_item,
                             new String[]{"title", "authorname", "brief", "publishtime", "commentnumber", "img"},
                             new int[]{R.id.title, R.id.authorname, R.id.brief, R.id.publishtime, R.id.commentnumber, R.id.topic_img});
-                    actSimpleAdapter.setViewBinder(new SimpleAdapter.ViewBinder() {
+                    topicSimpleAdapter.setViewBinder(new SimpleAdapter.ViewBinder() {
 
                         public boolean setViewValue(View view, Object data,
                                                     String textRepresentation) {
                             //判断是否为我们要处理的对象
                             if (view instanceof ImageView && data instanceof Bitmap) {
                                 ImageView iv = (ImageView) view;
-                                Log.d("img", "set img view");
+                                Log.d("img topic", "set img view");
                                 iv.setImageBitmap((Bitmap) data);
                                 return true;
                             } else
@@ -114,7 +117,7 @@ public class TopicFragment extends Fragment {
                         }
                     });
 
-                    mListView.setAdapter(actSimpleAdapter);
+                    mListView.setAdapter(topicSimpleAdapter);
 
                 } catch (JSONException e) {
                     e.printStackTrace();

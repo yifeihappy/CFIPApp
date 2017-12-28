@@ -74,7 +74,7 @@
     </TableLayout>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/commentEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10px"
@@ -83,7 +83,22 @@
         android:ems="10"
         android:inputType="textMultiLine"
         android:minHeight="73dp" />
-
+    <TextView
+        android:id="@+id/successTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="您已评论成功"
+        android:visibility="invisible"/>
+    <TextView
+        android:id="@+id/errorTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="评论失败"
+        android:visibility="invisible"/>
     <Button
         android:id="@+id/btnOK"
         android:layout_width="match_parent"

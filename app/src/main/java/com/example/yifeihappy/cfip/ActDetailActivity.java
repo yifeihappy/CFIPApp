@@ -129,6 +129,7 @@ public class ActDetailActivity extends AppCompatActivity {
             }
         }
     }
+
     class ActDetailThread extends Thread{
         String act_id;
         Handler handler;

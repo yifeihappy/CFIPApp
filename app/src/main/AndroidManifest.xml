@@ -32,7 +32,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".WallDetailActivity" />
-        <activity android:name=".ActDetailActivity"></activity>
+        <activity android:name=".ActDetailActivity" />
+        <activity android:name=".TopicDetailActivity"></activity>
     </application>
 
 </manifest>

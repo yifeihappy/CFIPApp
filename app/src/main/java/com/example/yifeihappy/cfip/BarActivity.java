@@ -9,11 +9,18 @@ import android.os.Bundle;
 public class BarActivity extends AppCompatActivity implements ActionBar.TabListener {
 
     private static final String SELECTED_ITEM = "selecter_item";
+    Fragment frag0;
+    Fragment frag1;
+    Fragment frag2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bar);
+        frag0 = new ActFragment();
+        frag1 = new TopicFragment();
+        frag2 = new WallFragment();
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -25,12 +32,13 @@ public class BarActivity extends AppCompatActivity implements ActionBar.TabListe
         actionBar.addTab(tab);
         tab = actionBar.newTab().setText("灯神").setTabListener(this);
         actionBar.addTab(tab);
+
     }
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
         switch (tab.getPosition()) {
             case 0:
-                Fragment frag0 = new ActFragment();
+//                Fragment frag0 = new ActFragment();
                 ft.replace(R.id.container, frag0);
                 break;
             case 1:
@@ -40,11 +48,11 @@ public class BarActivity extends AppCompatActivity implements ActionBar.TabListe
 //
 //                fragment.setArguments(args);
 //                ft.replace(R.id.container, fragment);
-                Fragment frag1 = new TopicFragment();
+//                Fragment frag1 = new TopicFragment();
                 ft.replace(R.id.container, frag1);
                 break;
             case 2:
-                Fragment frag2 = new WallFragment();
+//                Fragment frag2 = new WallFragment();
                 ft.replace(R.id.container, frag2);
                 break;
             default:
